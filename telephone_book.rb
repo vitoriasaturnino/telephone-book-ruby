@@ -11,6 +11,14 @@ def all_contacts
   puts "------------------------------\n"
 end  
 
+def add_contact
+  puts "Digite o nome do contato: "
+  name = gets.chomp
+  puts "Digite o número do telefone: "
+  telephone = gets.chomp
+  @contacts << {name: name, telephone: telephone}
+end
+
 loop do 
   puts "
   Telephone Book\n
@@ -33,7 +41,7 @@ loop do
     when 1
       all_contacts
     when 2
-   
+      add_contact
     when 3
     
     when 4
