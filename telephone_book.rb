@@ -1,3 +1,16 @@
+# base de contatos
+@contacts = [
+  {name: "Vitoria", telephone: "123456789"},
+  {name: "Veronica", telephone: "987654321"},
+]
+
+def all_contacts
+  @contacts.each do |contact|
+    puts " #{contact[:name]} - #{contact[:telephone]} "
+  end
+  puts "------------------------------\n"
+end  
+
 loop do 
   puts "
   Telephone Book\n
@@ -18,7 +31,7 @@ loop do
       puts 'See you later :)';
       break
     when 1
-      
+      all_contacts
     when 2
    
     when 3
@@ -26,6 +39,6 @@ loop do
     when 4
 
     when 5
-      
+
   end
 end
