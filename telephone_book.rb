@@ -31,6 +31,25 @@ def seek_contact
   puts "------------------------------\n"
 end
 
+def edit_contact
+  puts "Informe o contato que deseja editar: "
+  name = gets.chomp
+
+  @contacts.each do |contact|
+    if contact[:name].downcase.include?(name.downcase)
+      puts "Digite o novo nome do contato: \n [para sair sem salvar alterações pressione enter]"
+      saved_name = gets.chomp
+      contact[:name] = gets.chomp
+      contact[:name] = contact[:name].empty? ? saved_name : contact[:name]
+
+      puts "Digite o numero atualizado do contato: \n [para sair sem salvar alterações pressione enter]"
+      saved_telephone = gets.chomp
+      contact[:telephone] = gets.chomp
+      contact[:telephone] = contact[:telephone].empty? ? saved_telephone : contact[:telephone]
+    end
+  end
+end
+
 loop do 
   puts "
   Telephone Book\n
@@ -57,7 +76,7 @@ loop do
     when 3
       seek_contact
     when 4
-
+      edit_contact
     when 5
 
   end
