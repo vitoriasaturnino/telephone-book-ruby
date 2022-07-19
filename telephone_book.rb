@@ -19,6 +19,18 @@ def add_contact
   @contacts << {name: name, telephone: telephone}
 end
 
+def seek_contact
+  puts "Digite o nome do contato: "
+  name = gets.chomp
+
+  @contacts.each do |contact|
+    if contact[:name].downcase.include?(name.downcase)
+      puts "#{contact[:name]} - #{contact[:telephone]}"
+    end
+  end
+  puts "------------------------------\n"
+end
+
 loop do 
   puts "
   Telephone Book\n
@@ -43,7 +55,7 @@ loop do
     when 2
       add_contact
     when 3
-    
+      seek_contact
     when 4
 
     when 5
