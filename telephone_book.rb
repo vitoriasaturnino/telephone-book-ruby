@@ -38,12 +38,12 @@ def edit_contact
   @contacts.each do |contact|
     if contact[:name].downcase.include?(name.downcase)
       puts "Digite o novo nome do contato: \n [para sair sem salvar alterações pressione enter]"
-      saved_name = gets.chomp
+      saved_name = contact[:name]
       contact[:name] = gets.chomp
       contact[:name] = contact[:name].empty? ? saved_name : contact[:name]
 
       puts "Digite o numero atualizado do contato: \n [para sair sem salvar alterações pressione enter]"
-      saved_telephone = gets.chomp
+      saved_telephone = contact[:telephone]
       contact[:telephone] = gets.chomp
       contact[:telephone] = contact[:telephone].empty? ? saved_telephone : contact[:telephone]
     end
