@@ -1,7 +1,8 @@
 # base de contatos
 @contacts = [
-  {name: "Vitoria", telephone: "123456789"},
-  {name: "Veronica", telephone: "987654321"},
+  {name: "Vitoria", telephone: "(96) 2613-4468"},
+  {name: "Veronica", telephone: "(64) 3169-5252"},
+  {name: "Joao", telephone: "(37) 3423-9512"},
 ]
 
 def all_contacts
@@ -12,15 +13,15 @@ def all_contacts
 end  
 
 def add_contact
-  puts "Digite o nome do contato: "
+  puts "Enter contact name: "
   name = gets.chomp
-  puts "Digite o número do telefone: "
+  puts "Enter the phone number: "
   telephone = gets.chomp
   @contacts << {name: name, telephone: telephone}
 end
 
 def seek_contact
-  puts "Digite o nome do contato: "
+  puts "Enter contact name: "
   name = gets.chomp
 
   @contacts.each do |contact|
@@ -32,17 +33,17 @@ def seek_contact
 end
 
 def edit_contact
-  puts "Informe o contato que deseja editar: "
+  puts "Enter the contact you want to edit: "
   name = gets.chomp
 
   @contacts.each do |contact|
     if contact[:name].downcase.include?(name.downcase)
-      puts "Digite o novo nome do contato: \n [para sair sem salvar alterações pressione enter]"
+      puts "Enter new contact name: \n [to exit without saving changes press enter]"
       saved_name = contact[:name]
       contact[:name] = gets.chomp
       contact[:name] = contact[:name].empty? ? saved_name : contact[:name]
 
-      puts "Digite o numero atualizado do contato: \n [para sair sem salvar alterações pressione enter]"
+      puts "Enter the updated contact number: \n [to exit without saving changes press enter]"
       saved_telephone = contact[:telephone]
       contact[:telephone] = gets.chomp
       contact[:telephone] = contact[:telephone].empty? ? saved_telephone : contact[:telephone]
@@ -51,7 +52,7 @@ def edit_contact
 end
 
 def delete_contact
-  puts "informe o nome do contato que deseja deletar: "
+  puts "Enter the name of the contact you want to delete:"
   name = gets.chomp
   @contacts.each do |contact|
     if contact[:name].downcase == (name.downcase)
