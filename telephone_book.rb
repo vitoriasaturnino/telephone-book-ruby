@@ -50,6 +50,18 @@ def edit_contact
   end
 end
 
+def delete_contact
+  puts "informe o nome do contato que deseja deletar: "
+  name = gets.chomp
+  @contacts.each do |contact|
+    if contact[:name].downcase == (name.downcase)
+      index = @contacts.index(contact)
+      @contacts.delete_at(index)
+      break
+    end
+  end
+end
+
 loop do 
   puts "
   Telephone Book\n
@@ -78,6 +90,8 @@ loop do
     when 4
       edit_contact
     when 5
-
+      delete_contact
+    else
+      puts "Invalid option :l"
   end
 end
